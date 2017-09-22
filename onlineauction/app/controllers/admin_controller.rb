@@ -16,16 +16,14 @@ class AdminController < ApplicationController
 
 id=params[:id]
 @a=Product.find(id)
-if(params[:verified]=="0")
-@a.verified_by=0
-else
-@a.verified_by=session[:userdata]["id"].to_i
-end
-
-@a.save
-redirect_to action:"index"
-
-  end
+   if(params[:verified]=="0")
+         @a.verified_by=0
+     else
+        @a.verified_by=session[:userdata]["id"].to_i
+     end
+     @a.save
+     redirect_to action:"index"
+   end
 
   def vuser
 
